@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.TreeSet;
 
 public class ItemStorage {
@@ -21,5 +24,16 @@ public class ItemStorage {
 
     public int getCounter() {
         return counter;
+    }
+
+    public String toString() {
+
+        List<String> list = new ArrayList<>();
+
+        for (Item item : storage) {
+            list.add(item.toString());
+        }
+
+        return String.join("\n", list);
     }
 }
