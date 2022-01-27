@@ -1,26 +1,25 @@
-public class Item {
+public class Item implements Comparable<Item>{
 
-    private String code;
-    private String name;
-    private int price;
-    private String definition;
+    private final Integer code;
+    private final String name;
+    private final int price;
 
-    private Item() {
+    public Item(String name, int price, ItemStorage itemStorage) {
+        this.name = name;
+        this.price = price;
+        code = itemStorage.getCounter();
     }
 
-    public static Item createItem(String name, int price) {
-        Item item = new Item();
-        item.name = name;
-        item.price = price;
-        return item;
+    @Override
+    public int compareTo(Item o) {
+        return this.code.compareTo(o.code);
     }
 
-    public static Item createItem(String name, int price, String definition) {
-        Item item = createItem(name, price);
-        item.definition = definition;
-        return item;
+    public int getCode() {
+        return code;
     }
 
-
-
+    public String toString(){
+        return "code = " + code + "; name = " + name + "; price = " + price;
+    }
 }

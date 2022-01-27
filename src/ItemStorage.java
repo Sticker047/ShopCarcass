@@ -1,30 +1,25 @@
-import java.util.SortedMap;
-import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class ItemStorage {
 
-    private static ItemStorage ITEM_STORAGE = null;
+    private final TreeSet<Item> storage = new TreeSet<>();
 
-    private static SortedSet<Item> storage = null;
+    public int counter = 0;
 
 
-    public static ItemStorage getInstance(Item item) throws IllegalStateException {
-        if (storage.size() == 0) {
-            synchronized (ItemStorage.class) {
-                if (storage.size() == 0) {
-                    ITEM_STORAGE = new ItemStorage();
-                    ITEM_STORAGE.addItem(item);
-                }
-            }
+    public void addItem(String name, int price) {
+        storage.add(new Item(name, price, this));
+        counter++;
+    }
+
+    public Item getItem(int code) {
+        for (Item item : storage) {
+            if (item.getCode() == code) return item;
         }
-        return ITEM_STORAGE;
+        return null;
     }
 
-    private ItemStorage() {
-
-    }
-
-    public void addItem(Item item) {
-        storage.add(item);
+    public int getCounter() {
+        return counter;
     }
 }
