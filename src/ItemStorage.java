@@ -31,17 +31,7 @@ public class ItemStorage {
         return new HashMap<>(storage);
     }
 
-    @Override
-    public String toString() {
-
-        List<String> list = new ArrayList<>();
-
-        int temp = 0;
-
-        for (Item item : storage.values()) {
-            list.add(temp++ + " " + item.toString());
-        }
-
-        return String.join("\n", list);
+    public void Print(){
+        storage.forEach((k, v) -> System.out.println(k + ": " + v));
     }
 }

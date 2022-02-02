@@ -20,7 +20,7 @@ public class Main {
 
         itemStorage.addItems(itemList);
 
-        System.out.println(itemStorage);
+        itemStorage.Print();
 
         System.out.println("\n\n" + itemStorage.getItem(2));
     }
