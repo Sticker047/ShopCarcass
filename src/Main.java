@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
 
     public static void main(String[] args) {
 
-        ItemStorage itemStorage = new ItemStorage();
+        Map itemStorage = ItemStorage.getInstance();
 
         List<Item> itemList = new ArrayList(Arrays.asList(
                 new Item("Чайник", 3000),
@@ -18,11 +19,11 @@ public class Main {
         ));
 
 
-        itemStorage.addItems(itemList);
+        ItemStorage.addItems(itemList);
 
-        itemStorage.Print();
+        System.out.println(itemList);
 
-        System.out.println("\n\n" + itemStorage.getItem(2));
+        System.out.println("\n\n" + ItemStorage.getItem(2));
     }
 
 }

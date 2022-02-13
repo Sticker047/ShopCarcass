@@ -8,6 +8,10 @@ public class Item{
         this.price = price;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public String toString(){
         return "name = " + name + "; price = " + price;
     }
